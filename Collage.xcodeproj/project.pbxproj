@@ -9,19 +9,24 @@
 /* Begin PBXBuildFile section */
 		40B837B526FF6ABD00DF2D2B /* CollageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B837A526FF6ABB00DF2D2B /* CollageApp.swift */; };
 		40B837B626FF6ABD00DF2D2B /* CollageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B837A526FF6ABB00DF2D2B /* CollageApp.swift */; };
-		40B837B726FF6ABD00DF2D2B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B837A626FF6ABB00DF2D2B /* ContentView.swift */; };
-		40B837B826FF6ABD00DF2D2B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B837A626FF6ABB00DF2D2B /* ContentView.swift */; };
 		40B837B926FF6ABD00DF2D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B837A726FF6ABD00DF2D2B /* Assets.xcassets */; };
 		40B837BA26FF6ABD00DF2D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B837A726FF6ABD00DF2D2B /* Assets.xcassets */; };
+		40B837C626FF6B1F00DF2D2B /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B837C526FF6B1F00DF2D2B /* CanvasView.swift */; };
+		40B837C826FF6B4400DF2D2B /* CanvasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B837C726FF6B4400DF2D2B /* CanvasViewModel.swift */; };
+		40B837CA26FF6F7D00DF2D2B /* PhotosPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B837C926FF6F7C00DF2D2B /* PhotosPickerView.swift */; };
+		40B837CC2702A63800DF2D2B /* CameraPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B837CB2702A63800DF2D2B /* CameraPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		40B837A526FF6ABB00DF2D2B /* CollageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageApp.swift; sourceTree = "<group>"; };
-		40B837A626FF6ABB00DF2D2B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		40B837A726FF6ABD00DF2D2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B837AC26FF6ABD00DF2D2B /* Collage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B837B226FF6ABD00DF2D2B /* Collage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B837B426FF6ABD00DF2D2B /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		40B837C526FF6B1F00DF2D2B /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		40B837C726FF6B4400DF2D2B /* CanvasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewModel.swift; sourceTree = "<group>"; };
+		40B837C926FF6F7C00DF2D2B /* PhotosPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPickerView.swift; sourceTree = "<group>"; };
+		40B837CB2702A63800DF2D2B /* CameraPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +59,8 @@
 		40B837A426FF6ABB00DF2D2B /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				40B837C326FF6ADE00DF2D2B /* Scenes */,
 				40B837A526FF6ABB00DF2D2B /* CollageApp.swift */,
-				40B837A626FF6ABB00DF2D2B /* ContentView.swift */,
 				40B837A726FF6ABD00DF2D2B /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -76,6 +81,25 @@
 				40B837B426FF6ABD00DF2D2B /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		40B837C326FF6ADE00DF2D2B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				40B837C426FF6AE800DF2D2B /* Canvas */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		40B837C426FF6AE800DF2D2B /* Canvas */ = {
+			isa = PBXGroup;
+			children = (
+				40B837C526FF6B1F00DF2D2B /* CanvasView.swift */,
+				40B837C726FF6B4400DF2D2B /* CanvasViewModel.swift */,
+				40B837C926FF6F7C00DF2D2B /* PhotosPickerView.swift */,
+				40B837CB2702A63800DF2D2B /* CameraPickerView.swift */,
+			);
+			path = Canvas;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,8 +200,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40B837B726FF6ABD00DF2D2B /* ContentView.swift in Sources */,
+				40B837CC2702A63800DF2D2B /* CameraPickerView.swift in Sources */,
 				40B837B526FF6ABD00DF2D2B /* CollageApp.swift in Sources */,
+				40B837C626FF6B1F00DF2D2B /* CanvasView.swift in Sources */,
+				40B837C826FF6B4400DF2D2B /* CanvasViewModel.swift in Sources */,
+				40B837CA26FF6F7D00DF2D2B /* PhotosPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,7 +212,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40B837B826FF6ABD00DF2D2B /* ContentView.swift in Sources */,
 				40B837B626FF6ABD00DF2D2B /* CollageApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,14 +337,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Collage needs access to the camera if you want to display the pictures you take";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -340,14 +368,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Collage needs access to the camera if you want to display the pictures you take";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
