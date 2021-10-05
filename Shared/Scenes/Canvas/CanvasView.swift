@@ -9,6 +9,10 @@ import SwiftUI
 import PhotosUI
 
 struct CanvasView: View {
+  enum MediaItem {
+    case photo(UIImage)
+    case video(URL)
+  }
   
   @StateObject private var viewModel = CanvasViewModel()
   @State private var isShowingImagePicker = false
@@ -19,10 +23,16 @@ struct CanvasView: View {
       ScrollView {
         LazyVGrid(
           columns: Array(repeating: GridItem(.fixed(175), spacing: 10), count: 2)) {
-            ForEach(viewModel.images.indices, id: \.self) {
-              Image(uiImage: viewModel.images[$0])
-                .resizable()
-                .scaledToFill()
+            ForEach(viewModel.items.indices, id: \.self) { index in
+              let item = viewModel.items[index]
+              if case .photo(let image) = item {
+                Image(uiImage: image)
+                  .resizable()
+                  .scaledToFill()
+              } else if case .video(let url) = item {
+                VideoPlayerView(url: url)
+                  .frame(width: 175, height: 175)
+              }
             }
           }
       }

@@ -18,7 +18,7 @@ struct PhotosPickerView: UIViewControllerRepresentable {
   
   func makeUIViewController(context: Context) -> PHPickerViewController {
     var configuration = PHPickerConfiguration(photoLibrary: .shared())
-    configuration.filter = .any(of: [.images])
+    configuration.filter = .any(of: [.images, .videos])
     configuration.selectionLimit = 0
     configuration.selection = .ordered
     let controller = PHPickerViewController(configuration: configuration)
@@ -41,8 +41,7 @@ final class PhotosPickerViewCoordinator: PHPickerViewControllerDelegate {
   }
   
   func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-    let imageResults = results.filter { $0.itemProvider.canLoadObject(ofClass: UIImage.self) }
-    onResultsHandler(imageResults)
+    onResultsHandler(results)
     isPresented = false
   }
 }
