@@ -11,8 +11,11 @@ import PhotosUI
 
 final class CanvasViewModel: ObservableObject {
   @Published var items: [CanvasView.MediaItem] = []
+  private var tempDirectoryURL: URL {
+    FileManager.default.temporaryDirectory
+  }
   
-  var canTakePictures: Bool {
+  var isCameraAvailable: Bool {
     UIImagePickerController.isSourceTypeAvailable(.camera)
   }
   
@@ -20,6 +23,10 @@ final class CanvasViewModel: ObservableObject {
     DispatchQueue.main.async {
       self.items.append(.photo(addedImage))
     }
+  }
+  
+  func handleAddedVideo(_ videoURL: URL) {
+    copyVideoURLToTempDirectory(url: videoURL)
   }
   
   func handleResults(_ results: [PHPickerResult]) {
@@ -46,9 +53,19 @@ private extension CanvasViewModel {
   func loadVideoURL(from result: PHPickerResult) {
     result.itemProvider.loadItem(forTypeIdentifier: UTType.movie.identifier, options: nil) { [weak self] videoURL, error in
       guard let url = videoURL as? URL else { return }
+      self?.copyVideoURLToTempDirectory(url: url)
+    }
+  }
+  
+  func copyVideoURLToTempDirectory(url: URL) {
+    let localVideoURL = tempDirectoryURL.appendingPathComponent("\(Date().timeIntervalSince1970).mov")
+    do {
+      try FileManager.default.copyItem(at: url, to: localVideoURL)
       DispatchQueue.main.async { [weak self] in
-        self?.items.append(.video(url))
+        self?.items.append(.video(localVideoURL))
       }
+    } catch {
+      print("error copying file \(error.localizedDescription)")
     }
   }
 }
