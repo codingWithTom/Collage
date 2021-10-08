@@ -7,17 +7,20 @@
 
 import SwiftUI
 import PhotosUI
+import AVKit
 
 struct CanvasView: View {
   enum MediaItem {
     case photo(UIImage)
     case video(URL)
+    case livePhoto(PHLivePhoto)
   }
   
   @StateObject private var viewModel = CanvasViewModel()
   @State private var isShowingImagePicker = false
   @State private var isShowingCameraPicker = false
   @State private var isShowingCameraVideoPicker = false
+  @State private var isPresentingLivePhotoConfirmation = false
   
   var body: some View {
     NavigationView {
@@ -31,8 +34,11 @@ struct CanvasView: View {
                   .resizable()
                   .scaledToFill()
               } else if case .video(let url) = item {
-                VideoPlayerView(url: url)
-                  .frame(width: 175, height: 175)
+                VideoPlayer(player: AVPlayer(url: url))
+                  .frame(height: 175)
+              } else if case .livePhoto(let livePhoto) = item {
+                LivePhotoView(photo: livePhoto)
+                  .frame(height: 175)
               }
             }
           }
@@ -59,6 +65,23 @@ struct CanvasView: View {
         isPresented: $isShowingCameraVideoPicker,
         onOutput: .video({ viewModel.handleAddedVideo($0) }))
     }
+    .confirmationDialog("Choose Image Type", isPresented: $isPresentingLivePhotoConfirmation, titleVisibility: .visible) {
+      Button(action: {
+        viewModel.isLoadingLivePhotos = false
+        isShowingImagePicker.toggle()
+      }) {
+        Text("Image")
+      }
+      
+      Button(action: {
+        viewModel.isLoadingLivePhotos = true
+        isShowingImagePicker.toggle()
+      }) {
+        Text("Live Photos")
+      }
+    } message: {
+      Text("Choose how you want to display your photos")
+    }
   }
   
   private var trailingButtons: some View {
@@ -71,7 +94,7 @@ struct CanvasView: View {
           Image(systemName: "film")
         }
       }
-      Button(action: { isShowingImagePicker.toggle() }) {
+      Button(action: { isPresentingLivePhotoConfirmation.toggle() }) {
         Image(systemName: "plus.circle")
       }
     }

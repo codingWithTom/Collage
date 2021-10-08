@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4086ED6E270BE55700BA1665 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4086ED6D270BE55700BA1665 /* VideoPlayerView.swift */; };
+		40ACDE86270E7606005D083D /* LivePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ACDE85270E7606005D083D /* LivePhotoView.swift */; };
 		40B837B526FF6ABD00DF2D2B /* CollageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B837A526FF6ABB00DF2D2B /* CollageApp.swift */; };
 		40B837B626FF6ABD00DF2D2B /* CollageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B837A526FF6ABB00DF2D2B /* CollageApp.swift */; };
 		40B837B926FF6ABD00DF2D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B837A726FF6ABD00DF2D2B /* Assets.xcassets */; };
@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4086ED6D270BE55700BA1665 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		40ACDE85270E7606005D083D /* LivePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePhotoView.swift; sourceTree = "<group>"; };
 		40B837A526FF6ABB00DF2D2B /* CollageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollageApp.swift; sourceTree = "<group>"; };
 		40B837A726FF6ABD00DF2D2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B837AC26FF6ABD00DF2D2B /* Collage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +52,7 @@
 		40B8379F26FF6ABB00DF2D2B = {
 			isa = PBXGroup;
 			children = (
+				40ACDE85270E7606005D083D /* LivePhotoView.swift */,
 				40B837A426FF6ABB00DF2D2B /* Shared */,
 				40B837B326FF6ABD00DF2D2B /* macOS */,
 				40B837AD26FF6ABD00DF2D2B /* Products */,
@@ -97,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				40B837C526FF6B1F00DF2D2B /* CanvasView.swift */,
-				4086ED6D270BE55700BA1665 /* VideoPlayerView.swift */,
 				40B837C726FF6B4400DF2D2B /* CanvasViewModel.swift */,
 				40B837C926FF6F7C00DF2D2B /* PhotosPickerView.swift */,
 				40B837CB2702A63800DF2D2B /* CameraPickerView.swift */,
@@ -208,7 +208,7 @@
 				40B837C626FF6B1F00DF2D2B /* CanvasView.swift in Sources */,
 				40B837C826FF6B4400DF2D2B /* CanvasViewModel.swift in Sources */,
 				40B837CA26FF6F7D00DF2D2B /* PhotosPickerView.swift in Sources */,
-				4086ED6E270BE55700BA1665 /* VideoPlayerView.swift in Sources */,
+				40ACDE86270E7606005D083D /* LivePhotoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
