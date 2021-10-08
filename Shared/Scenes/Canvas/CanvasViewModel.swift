@@ -11,6 +11,7 @@ import PhotosUI
 
 final class CanvasViewModel: ObservableObject {
   @Published var items: [CanvasView.MediaItem] = []
+  @Published var isLoadingLivePhotos: Bool = false
   private var tempDirectoryURL: URL {
     FileManager.default.temporaryDirectory
   }
@@ -31,7 +32,10 @@ final class CanvasViewModel: ObservableObject {
   
   func handleResults(_ results: [PHPickerResult]) {
     for result in results {
-      if result.itemProvider.hasItemConformingToTypeIdentifier(UTType.image.identifier) {
+      if result.itemProvider.canLoadObject(ofClass: PHLivePhoto.self) && isLoadingLivePhotos {
+        loadLivePhoto(from: result)
+      }
+      else if result.itemProvider.hasItemConformingToTypeIdentifier(UTType.image.identifier) {
         loadImage(from: result)
       } else if result.itemProvider.hasItemConformingToTypeIdentifier(UTType.movie.identifier) {
         loadVideoURL(from: result)
@@ -41,6 +45,15 @@ final class CanvasViewModel: ObservableObject {
 }
 
 private extension CanvasViewModel {
+  func loadLivePhoto(from result: PHPickerResult) {
+    result.itemProvider.loadObject(ofClass: PHLivePhoto.self) { [weak self] photoObject, error in
+      guard let livePhoto = photoObject as? PHLivePhoto else { return }
+      DispatchQueue.main.async { [weak self] in
+        self?.items.append(.livePhoto(livePhoto))
+      }
+    }
+  }
+  
   func loadImage(from result: PHPickerResult) {
     result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] imageObject, error in
       guard let image = imageObject as? UIImage else { return }
