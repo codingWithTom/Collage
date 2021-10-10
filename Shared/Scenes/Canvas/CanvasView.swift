@@ -21,6 +21,7 @@ struct CanvasView: View {
   @State private var isShowingCameraPicker = false
   @State private var isShowingCameraVideoPicker = false
   @State private var isPresentingLivePhotoConfirmation = false
+  @Binding var mediaItems: [MediaItem]
   
   var body: some View {
     NavigationView {
@@ -82,6 +83,11 @@ struct CanvasView: View {
     } message: {
       Text("Choose how you want to display your photos")
     }
+    .onReceive(viewModel.$items) {
+      print("Added item count \($0.count)")
+      guard !$0.isEmpty else { return }
+      mediaItems = $0
+    }
   }
   
   private var trailingButtons: some View {
@@ -103,6 +109,6 @@ struct CanvasView: View {
 
 struct CanvasView_Previews: PreviewProvider {
   static var previews: some View {
-    CanvasView()
+    CanvasView(mediaItems: .constant([]))
   }
 }
