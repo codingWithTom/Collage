@@ -25,7 +25,7 @@ struct CameraPickerView: UIViewControllerRepresentable {
     controller.sourceType = .camera
     if case .video = onOutput {
       controller.mediaTypes = ["public.movie"]
-      controller.cameraCaptureMode = .photo
+      controller.cameraCaptureMode = .video
     }
     controller.delegate = context.coordinator
     return controller

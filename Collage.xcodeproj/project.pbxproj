@@ -16,6 +16,9 @@
 		40B837C826FF6B4400DF2D2B /* CanvasViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B837C726FF6B4400DF2D2B /* CanvasViewModel.swift */; };
 		40B837CA26FF6F7D00DF2D2B /* PhotosPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B837C926FF6F7C00DF2D2B /* PhotosPickerView.swift */; };
 		40B837CC2702A63800DF2D2B /* CameraPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B837CB2702A63800DF2D2B /* CameraPickerView.swift */; };
+		40B869A727126A5B00D21468 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B869A627126A5B00D21468 /* AlbumViewController.swift */; };
+		40B869A927126E0300D21468 /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B869A827126E0300D21468 /* AlbumView.swift */; };
+		40B869AB271366C200D21468 /* AlbumPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B869AA271366C200D21468 /* AlbumPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		40B837C726FF6B4400DF2D2B /* CanvasViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewModel.swift; sourceTree = "<group>"; };
 		40B837C926FF6F7C00DF2D2B /* PhotosPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPickerView.swift; sourceTree = "<group>"; };
 		40B837CB2702A63800DF2D2B /* CameraPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPickerView.swift; sourceTree = "<group>"; };
+		40B869A627126A5B00D21468 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		40B869A827126E0300D21468 /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
+		40B869AA271366C200D21468 /* AlbumPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +58,6 @@
 		40B8379F26FF6ABB00DF2D2B = {
 			isa = PBXGroup;
 			children = (
-				40ACDE85270E7606005D083D /* LivePhotoView.swift */,
 				40B837A426FF6ABB00DF2D2B /* Shared */,
 				40B837B326FF6ABD00DF2D2B /* macOS */,
 				40B837AD26FF6ABD00DF2D2B /* Products */,
@@ -89,6 +94,7 @@
 		40B837C326FF6ADE00DF2D2B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				40B869A527126A4600D21468 /* Album */,
 				40B837C426FF6AE800DF2D2B /* Canvas */,
 			);
 			path = Scenes;
@@ -97,12 +103,23 @@
 		40B837C426FF6AE800DF2D2B /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
+				40ACDE85270E7606005D083D /* LivePhotoView.swift */,
 				40B837C526FF6B1F00DF2D2B /* CanvasView.swift */,
 				40B837C726FF6B4400DF2D2B /* CanvasViewModel.swift */,
 				40B837C926FF6F7C00DF2D2B /* PhotosPickerView.swift */,
 				40B837CB2702A63800DF2D2B /* CameraPickerView.swift */,
 			);
 			path = Canvas;
+			sourceTree = "<group>";
+		};
+		40B869A527126A4600D21468 /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				40B869A627126A5B00D21468 /* AlbumViewController.swift */,
+				40B869AA271366C200D21468 /* AlbumPageViewController.swift */,
+				40B869A827126E0300D21468 /* AlbumView.swift */,
+			);
+			path = Album;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,12 +220,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40B869AB271366C200D21468 /* AlbumPageViewController.swift in Sources */,
 				40B837CC2702A63800DF2D2B /* CameraPickerView.swift in Sources */,
 				40B837B526FF6ABD00DF2D2B /* CollageApp.swift in Sources */,
 				40B837C626FF6B1F00DF2D2B /* CanvasView.swift in Sources */,
 				40B837C826FF6B4400DF2D2B /* CanvasViewModel.swift in Sources */,
 				40B837CA26FF6F7D00DF2D2B /* PhotosPickerView.swift in Sources */,
 				40ACDE86270E7606005D083D /* LivePhotoView.swift in Sources */,
+				40B869A927126E0300D21468 /* AlbumView.swift in Sources */,
+				40B869A727126A5B00D21468 /* AlbumViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
